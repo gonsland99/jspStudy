@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function validate(){
+		var login = document.login;
+		var id = login.id.value;
+		var pw = login.pw.value;
+		
+		if((id.length==0 || id=="") || (pw.length==0 || pw=="")){
+			alert("아이디와 비밀번호를 확인해주세요");
+		} else {
+			login.method = "post";
+			login.action = "../login3";
+			login.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="login">
+		아이디: <input type="text" name="id"/><br/>
+		비밀번호: <input type="password" name="pw"/><br/>
+		<input type="button" onClick="validate()" value="로그인"/>
+		<input type="reset" value="초기화"/>
+		<input type="hidden" name="address" value="서울시 성북구"/>
+	</form>
+</body>
+</html>
