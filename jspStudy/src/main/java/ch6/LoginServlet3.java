@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login3")
+//@WebServlet("/login3")
 public class LoginServlet3 extends HttpServlet {
     public LoginServlet3() {
     	System.out.println("init");
