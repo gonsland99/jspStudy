@@ -22,7 +22,7 @@
       }
   }  
   function backToList(obj){
-    obj.action="${contextPath}/brd/listArticles.do";
+    obj.action="${contextPath}/board/listArticles.do";
     obj.submit();
   }
 
@@ -31,8 +31,8 @@
 </head>
 <body>
 <h1 style="text-align:center">새글 쓰기</h1>
-  <form name="articleForm" method="post" action="${contextPath}/brd/addArticle.do" enctype="multipart/form-data">
-    <table border=0 align="center">
+  <form name="articleForm" method="post"   action="${contextPath}/board/addArticle.do"   enctype="multipart/form-data">
+    <table border="0" align="center">
      <tr>
 	   <td align="right">글제목: </td>
 	   <td colspan="2"><input type="text" size="67"  maxlength="500" name="title" /></td>
