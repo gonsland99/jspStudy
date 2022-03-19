@@ -3,11 +3,11 @@ package ch19.ex02;
 public class PersonServiceImpl implements PersonService {
 	private String name;
 	private int age;
-
+	
+	//생성자를 이용한 DI
 	public PersonServiceImpl(String name) {
 		this.name = name;
 	}
-
 	public PersonServiceImpl(String name, int age) {
 		this.name = name;
 		this.age = age;

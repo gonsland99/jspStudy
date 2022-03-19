@@ -2,18 +2,18 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
                              "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
-   <bean id="personService" class="ch19.ex01.PersonServiceImpl">
-      <property name="name">
-         <value>홍길동</value>
-      </property>
-   </bean>
-   
-   <bean id="personService1" class="ch19.ex02.PersonServiceImpl">
-        <constructor-arg   value="이순신" />
-   </bean>
-   
-   <bean id="personService2" class="ch19.ex02.PersonServiceImpl">
-       <constructor-arg   value="손흥민"  />
-       <constructor-arg   value="23"  />
-   </bean>
+	<!-- DI XML -->
+	<bean id="personService" class="ch19.ex01.PersonServiceImpl">
+		<property name="name">
+			<value>홍길동</value>
+		</property>
+	</bean>
+
+	<bean id="personService1" class="ch19.ex02.PersonServiceImpl">
+		<constructor-arg value="이순신" />
+	</bean>
+	<bean id="personService2" class="ch19.ex02.PersonServiceImpl">
+		<constructor-arg value="손흥민" />
+		<constructor-arg value="23" />
+	</bean>
 </beans>
