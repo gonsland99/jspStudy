@@ -9,4 +9,29 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+<!--  ContextLoaderListner 설정 -->
+  <listener>
+      <listener-class>
+         org.springframework.web.context.ContextLoaderListener
+     </listener-class>
+   </listener>
+<!-- 읽어들일 파일 경로 -->
+   <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+          /WEB-INF/config/action-service.xml
+          /WEB-INF/config/action-mybatis.xml
+<!--           /WEB-INF/config/action-dataSource.xml -->
+      </param-value>
+   </context-param>
+<!--    DispatcherServlet 설정 -->
+  <servlet>
+  	<servlet-name>action</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>	<!-- tomcat실행 시 메모리저장 -->
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>action</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>
