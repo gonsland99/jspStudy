@@ -12,6 +12,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	<!-- 
 	<servlet>
 		<servlet-name>aaa</servlet-name>
 		<servlet-class>pro05.sec01.ex01.FirstServlet</servlet-class>
@@ -27,5 +28,6 @@
 	<servlet-mapping>
 		<servlet-name>bbb</servlet-name>
 		<url-pattern>/second</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
+	-->
 </web-app>
