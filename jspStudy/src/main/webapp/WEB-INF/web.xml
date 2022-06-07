@@ -29,7 +29,7 @@
 		<servlet-name>bbb</servlet-name>
 		<url-pattern>/second</url-pattern>
 	</servlet-mapping> 
-	-->
+	
 	<context-param>
 		<param-name>menu_member</param-name>
 		<param-value>회원등록 회원조회 회원수정</param-value>
@@ -42,4 +42,5 @@
 		<param-name>menu_goods</param-name>
 		<param-value>상품조회 상품등록 상품수정 상품삭제</param-value>
 	</context-param>
+	-->
 </web-app>
