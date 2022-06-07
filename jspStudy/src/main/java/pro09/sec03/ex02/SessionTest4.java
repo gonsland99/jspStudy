@@ -32,7 +32,7 @@ public class SessionTest4 extends HttpServlet {
 				session.setAttribute("user_id", user_id);
 				out.print("<a href='login'>로그인상태 확인</a>");
 			}else {
-				out.print("<a href='pro09/login2.html'>다시 로그인 하세요!</a>");
+				out.print("<a href='login2.html'>다시 로그인 하세요!</a>");
 				session.invalidate();
 			}
 		}else {
@@ -40,7 +40,7 @@ public class SessionTest4 extends HttpServlet {
 			if(user_id != null && user_id.length() != 0) {
 				out.print("안녕하세요 "+user_id+"님!");
 			}else {
-				out.print("<a href='pro09/login2.html'>다시 로그인 해주세요!!</a>");
+				out.print("<a href='login2.html'>다시 로그인 해주세요!!</a>");
 				session.invalidate();
 			}
 		}
