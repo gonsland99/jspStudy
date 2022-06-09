@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/pro10/login")
+//@WebServlet("/pro10/login")
 public class LoginTest extends HttpServlet {
 	ServletContext context = null;
 	List user_list = new ArrayList();

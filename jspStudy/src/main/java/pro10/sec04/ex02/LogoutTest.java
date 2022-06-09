@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/pro10/logout")
+//@WebServlet("/pro10/logout")
 public class LogoutTest extends HttpServlet {
 	ServletContext context;
 	
