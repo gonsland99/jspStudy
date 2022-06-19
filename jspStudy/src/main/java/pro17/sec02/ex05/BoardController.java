@@ -1,4 +1,4 @@
-package pro17.sec02.ex04;
+package pro17.sec02.ex05;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
-//@WebServlet("/board4/*")
+@WebServlet("/board/*")
 public class BoardController extends HttpServlet {
     private static String ARTICLE_IMAGE_REPO = "C://board\\article_image";
 	BoardService service;
@@ -52,13 +52,13 @@ public class BoardController extends HttpServlet {
 			if(action == null) {
 				list = service.listArticles();
 				request.setAttribute("list", list);
-				nextPage = "/pro17/board4/listArticles.jsp";
+				nextPage = "/pro17/board5/listArticles.jsp";
 			}else if(action.equals("/list.do")) {
 				list = service.listArticles();
 				request.setAttribute("list", list);
-				nextPage = "/pro17/board4/listArticles.jsp";
+				nextPage = "/pro17/board5/listArticles.jsp";
 			}else if(action.equals("/articleForm.do")){
-				nextPage = "/pro17/board4/articleForm.jsp";
+				nextPage = "/pro17/board5/articleForm.jsp";
 			}else if(action.equals("/addArticle.do")){
 				int articleNO = 0;
 				Map<String, String> articleMap = upload(request, response);
@@ -83,16 +83,43 @@ public class BoardController extends HttpServlet {
 				out.print("<script>"+ " alert('새글 추가');"
 									+ " location.href='"
 									+ request.getContextPath()
-									+ "/board4/list.do';"+"</script>");
+									+ "/board/list.do';"+"</script>");
 				
 				return;
 			}else if(action.equals("/viewArticle.do")) {
 				String articleNO = request.getParameter("articleNO");
 				vo = service.viewArticle(Integer.parseInt(articleNO));
 				request.setAttribute("article", vo);
-				nextPage = "/pro17/board4/viewArticle.jsp";
+				nextPage = "/pro17/board5/viewArticle.jsp";
+			}else if(action.equals("/modArticle.do")) {
+				Map<String, String> articleMap = upload(request, response);
+				int articleNO = Integer.parseInt(articleMap.get("articleNO"));
+				vo.setArticleNO(articleNO);
+				String title = articleMap.get("title");
+				String content = articleMap.get("content");
+				String imageFileName = articleMap.get("imageFileName");
+				vo.setParentNO(0);
+				vo.setId("hong");
+				vo.setTitle(title);
+				vo.setContent(content);
+				vo.setImageFileName(imageFileName);
+				service.modArticle(vo);
+				if (imageFileName != null && imageFileName.length() != 0) {
+					String originalFileName = articleMap.get("originalFileName");
+					File srcFile = new File(ARTICLE_IMAGE_REPO + "\\" + "temp" + "\\" + imageFileName);
+					File destDir = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO);
+					destDir.mkdirs();
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+					;
+					File oldFile = new File(ARTICLE_IMAGE_REPO + "\\" + articleNO + "\\" + originalFileName);
+					oldFile.delete();
+				}
+				PrintWriter pw = response.getWriter();
+				pw.print("<script>" + "  alert('글을 수정했습니다.');" + " location.href='" + request.getContextPath()
+						+ "/board/viewArticle.do?articleNO=" + articleNO + "';" + "</script>");
+				return;
 			}else {
-				nextPage = "/board4/listArticles.jsp";
+				nextPage = "/pro17/board5/listArticles.jsp";
 			}
 			RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 			dispatch.forward(request, response);
