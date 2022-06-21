@@ -34,7 +34,7 @@
 		</property>
 	</bean>
 
-	<bean id="userController" class="pro21.sec01.ex02.UserController">
+	<bean id="userController" class="pro21.sec01.ex03.UserController">
 		<property name="methodNameResolver">
 			<ref local="userMethodNameResolver" />
 		</property>
