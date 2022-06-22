@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>jspStudy</display-name>
+	<!-- 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -12,6 +13,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	 -->
 	<!-- 
 	<servlet>
 		<servlet-name>aaa</servlet-name>
@@ -42,7 +44,27 @@
 		<param-name>menu_goods</param-name>
 		<param-value>상품조회 상품등록 상품수정 상품삭제</param-value>
 	</context-param>
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 	-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoadrListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLaction</param-name>
+		<param-value>
+			/WEB-INF/config/action-service.xml
+			/WEB-INF/config/action-dataSource.xml
+		</param-value>
+	</context-param>
 	<servlet>
 		<servlet-name>action</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
